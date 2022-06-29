@@ -15,7 +15,7 @@ import { NO_VALUE } from '../../legacy/auth/v3/strategies/oauth2/common'
 
 export const accessTokenHasExpired = async (authentication: Types.Authentication) => {
   const { expiresIn } = authentication.payload
-
+  console.log('accessToekenHasExpired')
   if (!expiresIn) {
     return false
   }
