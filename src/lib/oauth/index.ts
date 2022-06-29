@@ -14,7 +14,10 @@ import { NO_VALUE } from '../../legacy/auth/v3/strategies/oauth2/common'
  */
 
 export const accessTokenHasExpired = async (authentication: Types.Authentication) => {
+  
   const { expiresIn } = authentication.payload
+  console.log(authentication.payload)
+  
   console.log('accessToekenHasExpired')
   if (!expiresIn) {
     return false
@@ -24,7 +27,7 @@ export const accessTokenHasExpired = async (authentication: Types.Authentication
   const expiredFromThisTime = expiresIn * 1000 + updatedAt
   const safeRefreshTime = expiredFromThisTime - 15 * 60 * 1000 // 15 minutes
   const isNowLaterThanSafeRefreshTime = Date.now() > safeRefreshTime
-
+  console.log('isNowLaterThanSafeRefreshTime:' + isNowLaterThanSafeRefreshTime)
   return isNowLaterThanSafeRefreshTime
 }
 
