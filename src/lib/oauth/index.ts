@@ -25,7 +25,7 @@ export const accessTokenHasExpired = async (authentication: Types.Authentication
 
   const updatedAt = Date.parse(authentication.updated_at)
   const expiredFromThisTime = expiresIn * 1000 + updatedAt
-  const safeRefreshTime = expiredFromThisTime - 10 * 60 * 1000 // 15 minutes
+  const safeRefreshTime = expiredFromThisTime - 1 * 60 * 1000 // 15 minutes
   const isNowLaterThanSafeRefreshTime = Date.now() > safeRefreshTime
   console.log('updatedAt:' + updatedAt)
   console.log('expiredFromThisTime:' + expiredFromThisTime)
