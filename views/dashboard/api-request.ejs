@@ -80,6 +80,7 @@
           .request(method, endpoint)
           .then(async response => {
             // Display response header
+            console.log(response.toString());
             responseHeader.innerHTML = [
               `Status: <strong>${response.status} ${response.statusText}</strong>`,
               `Time: <strong>${Date.now() - responseStart}ms</strong>`
