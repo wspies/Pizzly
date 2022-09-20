@@ -7,8 +7,8 @@ import { responseToCredentials } from './common'
 import { AuthenticationFailed } from '../../errors'
 
 export const authenticate = asyncMiddleware(async (req: TAuthenticateRequest, res: Response, next: NextFunction) => {
-  //const callbackURL = process.env.AUTH_CALLBACK_URL || `${req.protocol}://${req.get('host')}/auth/callback`
-  const callbackURL = `http://localhost`
+  const callbackURL = process.env.AUTH_CALLBACK_URL || `${req.protocol}://${req.get('host')}/auth/callback`
+
   const {
     credentials: { clientId, clientSecret },
     scopes = []
