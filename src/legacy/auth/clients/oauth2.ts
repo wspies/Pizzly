@@ -12,7 +12,7 @@ const headers = { 'User-Agent': 'Pizzly' }
 
 const createClientForRedirect = ({ authorizationURL, clientId }: RedirectClientParams) => {
   const url = new URL(authorizationURL)
-
+  console.log(url);
   return simpleOauth2.create({
     client: { id: clientId, secret: '' },
     auth: {
