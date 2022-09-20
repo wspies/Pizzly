@@ -60,6 +60,7 @@ export const authenticate = asyncMiddleware(async (req: TAuthenticateRequest, re
     scope: scopes || config?.scope || [],
     callbackURL
   })
-  console.log(redirectURL)
+  console.log('getCodeRedirectURL:redirectURL:' + redirectURL)
+  console.log('getCodeRedirectURL:callBackUrl:' + callbackURL)
   res.redirect(redirectURL)
 })
