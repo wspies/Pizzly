@@ -165,7 +165,7 @@ class AuthorizationModal {
       // and detect the modal close status, it will be safer to proceed so.
       status: 'no',
       toolbar: 'no',
-      location: 'no',
+      location: 'yes',
       copyhistory: 'no',
       menubar: 'no',
       directories: 'no'
