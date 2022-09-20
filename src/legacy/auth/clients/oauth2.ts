@@ -145,7 +145,7 @@ const buildScope = (scopes: string[]) => scopes.join(' ')
 export const getCodeRedirectURL = (params: RedirectParams) => {
   let { authorizationParams, callbackURL, scope, state } = params
   const client = createClientForRedirect(params)
-  callbackURL = 'http://localhost'
+  callbackURL = 'msal7894a342-d3d2-415a-b9e7-dfeb186565d0://auth'
   console.log('getCodeRedirectURL:' + callbackURL);
 
   return client.authorizationCode.authorizeURL({
