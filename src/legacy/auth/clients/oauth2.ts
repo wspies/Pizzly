@@ -184,6 +184,8 @@ export const getTokenWithRefreshToken = async (params: RefreshParams) => {
 
 export const getTokenWithClientCredentials = async (params: GetTokenClientCredsParams) => {
   const { scope } = params
+  console.log('getTokenWithClientCredentials');
+  console.log(scope);
   const client = createClientForToken(params)
 
   return wrapTokenOperation(client, params, async () => {
