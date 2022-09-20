@@ -1,0 +1,20 @@
+{
+    "name": "Thieme - MS Dynamics",
+    "auth": {
+        "authType": "OAUTH2",
+        "grantType": "client_credentials",
+        "bodyFormat": "form",
+        "tokenURL": "https://login.microsoftonline.com/b22b36d4-6d4b-4114-bd43-3913bc2d1225/oauth2/v2.0/token",
+        "authorizationMethod": "body",
+        "authorizationParams": {}
+    },
+    "request": {
+        "headers": {
+            "Accept": "application/json",
+            "User-Agent": "Pizzly",
+            "Authorization": "Bearer ${auth.accessToken}"
+        },
+        "baseURL": "https://tst-thiememeulenhoff.crm4.dynamics.com/api/data/v9.2/",
+        "params": {}
+    }
+}
