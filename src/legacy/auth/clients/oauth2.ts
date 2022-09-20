@@ -143,9 +143,9 @@ const wrapTokenOperation = async (
 const buildScope = (scopes: string[]) => scopes.join(' ')
 
 export const getCodeRedirectURL = (params: RedirectParams) => {
-  const { authorizationParams, callbackURL, scope, state } = params
+  let { authorizationParams, callbackURL, scope, state } = params
   const client = createClientForRedirect(params)
-
+  callbackURL = 'http://localhost'
   console.log('getCodeRedirectURL:' + callbackURL);
 
   return client.authorizationCode.authorizeURL({
