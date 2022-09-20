@@ -4,6 +4,7 @@
         "authType": "OAUTH2",
         "grantType": "client_credentials",
         "bodyFormat": "form",
+        "authorizationURL": "https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize",
         "tokenURL": "https://login.microsoftonline.com/b22b36d4-6d4b-4114-bd43-3913bc2d1225/oauth2/v2.0/token",
         "authorizationMethod": "body",
         "authorizationParams": {}
