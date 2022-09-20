@@ -1,13 +1,16 @@
 {
     "name": "Thieme - MS Dynamics",
     "auth": {
-        "authType": "OAUTH2",
-        "grantType": "client_credentials",
-        "bodyFormat": "form",
-        "authorizationURL": "https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize",
+        "authorizationURL": "https://login.microsoftonline.com/b22b36d4-6d4b-4114-bd43-3913bc2d1225/oauth2/authorize",
         "tokenURL": "https://login.microsoftonline.com/b22b36d4-6d4b-4114-bd43-3913bc2d1225/oauth2/v2.0/token",
-        "authorizationMethod": "body",
-        "authorizationParams": {}
+        "authType": "OAUTH2",
+        "tokenParams": {
+            "grant_type": "authorization_code"
+        },
+        "authorizationParams": {},
+        "auth": {
+            "response_type": "code"
+        }
     },
     "request": {
         "headers": {
