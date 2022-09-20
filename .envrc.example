@@ -4,8 +4,8 @@
 #
 # 1. Secure access to the dashboard
 #
-export DASHBOARD_USERNAME=""
-export DASHBOARD_PASSWORD=""
+export DASHBOARD_USERNAME="wspies"
+export DASHBOARD_PASSWORD="4PFTGbCk(s3VW@Mb"
 #
 # 2. Secure requests to the API
 #
