@@ -146,7 +146,7 @@ export const getCodeRedirectURL = (params: RedirectParams) => {
   const { authorizationParams, callbackURL, scope, state } = params
   const client = createClientForRedirect(params)
 
-  console.log(callbackURL);
+  console.log('getCodeRedirectURL:' + callbackURL);
 
   return client.authorizationCode.authorizeURL({
     ...authorizationParams,
