@@ -18,7 +18,7 @@ export const accessTokenHasExpired = async (authentication: Types.Authentication
   const { expiresIn } = authentication.payload
   console.log(authentication.payload)
 
-  console.log('accessToekenHasExpired')
+  console.log('accessTokenHasExpired')
   if (!expiresIn) {
     return false
   }
