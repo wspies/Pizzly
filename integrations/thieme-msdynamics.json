@@ -13,12 +13,11 @@
         }
     },
     "request": {
+        "baseURL": "https://tst-thiememeulenhoff.crm4.dynamics.com/api/data/v9.2/",
         "headers": {
             "Accept": "application/json",
             "User-Agent": "Pizzly",
             "Authorization": "Bearer ${auth.accessToken}"
-        },
-        "baseURL": "https://tst-thiememeulenhoff.crm4.dynamics.com/api/data/v9.2/",
-        "params": {}
+        }
     }
 }
