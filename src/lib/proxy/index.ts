@@ -41,6 +41,8 @@ export const incomingRequestHandler = async (req, res, next) => {
     return next(new PizzlyError('unknown_authentication'))
   }
 
+  console.log(authentication);
+
   try {
     // Handle the token freshness (if it has expired)
     if (await accessTokenHasExpired(authentication)) {
