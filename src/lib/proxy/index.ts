@@ -41,13 +41,15 @@ export const incomingRequestHandler = async (req, res, next) => {
     return next(new PizzlyError('unknown_authentication'))
   }
 
-  console.log(authentication);
+  console.log('authentication-1:' + authentication);
 
   try {
     // Handle the token freshness (if it has expired)
     if (await accessTokenHasExpired(authentication)) {
       authentication = await refreshAuthentication(integration, authentication)
     }
+
+    console.log('authentication-2:' + authentication);
 
     if (!authentication) {
       return next(new PizzlyError('token_refresh_failed')) // TODO: improve error verbosity
