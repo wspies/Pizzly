@@ -71,7 +71,8 @@ export const incomingRequestHandler = async (req, res, next) => {
     })
 
     // Perform external request
-    console.log(headers);
+    console.log('url:' + url);
+    console.log('headers:' + headers);
     const externalRequest = https.request(url, { headers, method: req.method }, externalResponse => {
       externalResponseHandler(externalResponse, req, res, next)
     })
@@ -176,6 +177,9 @@ async function buildRequest({
         } as any
       }
     }
+    console.log(requestConfig.headers);
+    console.log(forwardedHeaders);
+
     const interpolatedHeaders = interpolate({ ...(requestConfig.headers || {}), ...forwardedHeaders }, '', {
       auth
     })
