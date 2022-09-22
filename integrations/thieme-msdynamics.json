@@ -17,7 +17,8 @@
         "headers": {
             "Accept": "application/json",
             "User-Agent": "Pizzly",
-            "Authorization": "Bearer ${auth.accessToken}"
+            "Authorization": "Bearer ${auth.accessToken}",
+            "Host": "tst-thiememeulenhoff.crm4.dynamics.com"
         }
     }
 }
