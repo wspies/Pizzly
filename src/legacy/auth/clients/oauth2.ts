@@ -189,6 +189,7 @@ export const getTokenWithClientCredentials = async (params: GetTokenClientCredsP
   console.log('getTokenWithClientCredentials');
   console.log(params);
   const client = createClientForToken(params)
+  console.log(client);
 
   return wrapTokenOperation(client, params, async () => {
     return client.clientCredentials.getToken({ scope: buildScope(scope) })
