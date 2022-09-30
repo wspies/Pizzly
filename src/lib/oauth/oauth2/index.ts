@@ -19,7 +19,7 @@ export const refresh = async (
   const oldPayload: Types.OAuth2Payload = oldAuthentication.payload
   const refreshToken = oldPayload.refreshToken
   const { clientId, clientSecret } = configuration.credentials as Types.OAuth2Credentials
-
+  console.log(configuration);
   if (!refreshToken) {
     const { tokenParams, tokenURL, authorizationMethod, bodyFormat } = integration.auth
     const { grant_type: grantType } = tokenParams
