@@ -193,7 +193,7 @@ export const getTokenWithClientCredentials = async (params: GetTokenClientCredsP
   console.log(buildScope(scope));
 
   return wrapTokenOperation(client, params, async () => {
-    return client.clientCredentials.getToken({ scope: buildScope(scope) })
+    return client.clientCredentials.getToken({ scope: 'https://tst-thiememeulenhoff.crm4.dynamics.com/.default' })
   })
 }
 
