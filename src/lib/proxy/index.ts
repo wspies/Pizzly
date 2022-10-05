@@ -41,16 +41,16 @@ export const incomingRequestHandler = async (req, res, next) => {
     return next(new PizzlyError('unknown_authentication'))
   }
 
-  console.dir('lib\proxy\index.ts\incomingRequestHandler:current authentication' + JSON.stringify(authentication));
+  console.dir('lib\\proxy\\index.ts\\incomingRequestHandler:current authentication' + JSON.stringify(authentication));
 
   try {
     // Handle the token freshness (if it has expired)
     if (await accessTokenHasExpired(authentication)) {
-      console.dir('lib\proxy\index.ts\incomingRequestHandler:refreshAuthenticationToken');
+      console.dir('lib\\proxy\\index.ts\\incomingRequestHandler:refreshAuthenticationToken');
       authentication = await refreshAuthentication(integration, authentication)
     }
 
-    console.dir('lib\proxy\index.ts\incomingRequestHandler:update authentication' + JSON.stringify(authentication));
+    console.dir('lib\\proxy\\index.ts\\incomingRequestHandler:update authentication' + JSON.stringify(authentication));
 
     if (!authentication) {
       return next(new PizzlyError('token_refresh_failed')) // TODO: improve error verbosity
@@ -76,12 +76,12 @@ export const incomingRequestHandler = async (req, res, next) => {
     })
 
     // Perform external request
-    console.log('url:' + url);
-    console.log('headers:' + JSON.stringify(headers));
+    console.log('lib\\proxy\\index.ts\\incomingRequestHandler:index-url:' + url);
+    console.log('lib\\proxy\\index.ts\\incomingRequestHandler:headers:' + JSON.stringify(headers));
     const externalRequest = https.request(url, { headers, method: req.method }, externalResponse => {
       externalResponseHandler(externalResponse, req, res, next)
     })
-    console.log(url);
+    console.log('lib\\proxy\\index.ts\\incomingRequestHandler:send to external system:');
     req.pipe(externalRequest)
 
     // Handle error
