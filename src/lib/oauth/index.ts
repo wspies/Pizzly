@@ -55,10 +55,10 @@ export const refreshAuthentication = async (
 
     console.log('lib\\oauth\\index.ts\\refreshAuthentication()-refreshToken:' + refreshToken)
 
-    // if (!refreshToken || refreshToken === NO_VALUE) {
-    //   console.log('lib\\oauth\\index.ts\\refreshAuthentication()- throw error-token_refresh_missing')
-    //   throw new PizzlyError('token_refresh_missing')
-    // }
+    if (!refreshToken || refreshToken === NO_VALUE) {
+      console.log('lib\\oauth\\index.ts\\refreshAuthentication()- throw error-token_refresh_missing')
+      //throw new PizzlyError('token_refresh_missing')
+    }
 
     const newPayload = await OAuth2.refresh(integration, configuration, oldAuthentication)
 
