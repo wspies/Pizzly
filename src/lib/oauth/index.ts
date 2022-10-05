@@ -2,7 +2,7 @@ import * as OAuth2 from './oauth2'
 import { Types } from '../../types'
 import { configurations, authentications } from '../database'
 import { isOAuth2 } from '../database/integrations'
-import { PizzlyError } from '../error-handling'
+//import { PizzlyError } from '../error-handling'
 import { NO_VALUE } from '../../legacy/auth/v3/strategies/oauth2/common'
 
 /**
