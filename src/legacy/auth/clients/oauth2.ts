@@ -32,7 +32,7 @@ const createClientForToken = ({
   tokenURL
 }: TokenClientParams) => {
   const url = new URL(tokenURL)
-  console.log('createClientForToken' + url);
+  console.log('legacy\\auth\clients\oauth2\createClientForToken() - tokeUrl:' + url);
   return simpleOauth2.create({
     client: { id: clientId, secret: clientSecret },
     auth: { tokenHost: url.origin, tokenPath: url.pathname },
@@ -185,10 +185,10 @@ export const getTokenWithRefreshToken = async (params: RefreshParams) => {
 export const getTokenWithClientCredentials = async (params: GetTokenClientCredsParams) => {
   const { scope } = params
 
-  console.log(params);
+  console.log('legacy\\auth\clients\oauth2.ts\getTokenWithClientCredentials() - params:' + params);
   const client = createClientForToken(params)
 
-  console.log(buildScope(scope));
+  console.log('legacy\\auth\clients\oauth2.ts() - scope:' + buildScope(scope));
 
   return wrapTokenOperation(client, params, async () => {
     return client.clientCredentials.getToken({ scope: 'https://tst-thiememeulenhoff.crm4.dynamics.com/.default' })
