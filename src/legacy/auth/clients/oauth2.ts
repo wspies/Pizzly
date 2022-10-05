@@ -12,7 +12,7 @@ const headers = { 'User-Agent': 'Pizzly' }
 
 const createClientForRedirect = ({ authorizationURL, clientId }: RedirectClientParams) => {
   const url = new URL(authorizationURL)
-  console.log('createClientForRedirect:' + url);
+
   return simpleOauth2.create({
     client: { id: clientId, secret: '' },
     auth: {
@@ -146,8 +146,6 @@ export const getCodeRedirectURL = (params: RedirectParams) => {
   let { authorizationParams, callbackURL, scope, state } = params
   const client = createClientForRedirect(params)
 
-  console.log('getCodeRedirectURL:' + callbackURL);
-
   return client.authorizationCode.authorizeURL({
     ...authorizationParams,
     state,
@@ -186,10 +184,10 @@ export const getTokenWithRefreshToken = async (params: RefreshParams) => {
 
 export const getTokenWithClientCredentials = async (params: GetTokenClientCredsParams) => {
   const { scope } = params
-  console.log('getTokenWithClientCredentials');
+
   console.log(params);
   const client = createClientForToken(params)
-  console.log(client);
+
   console.log(buildScope(scope));
 
   return wrapTokenOperation(client, params, async () => {

@@ -18,7 +18,7 @@ export const accessTokenHasExpired = async (authentication: Types.Authentication
   const { expiresIn } = authentication.payload
   console.log(authentication.payload)
 
-  console.log('accessTokenHasExpired')
+  console.log('lib\oauth\index.ts - accessTokenHasExpired')
   if (!expiresIn) {
     return false
   }
@@ -30,6 +30,7 @@ export const accessTokenHasExpired = async (authentication: Types.Authentication
   console.log('updatedAt:' + updatedAt)
   console.log('expiredFromThisTime:' + expiredFromThisTime)
   console.log('safeRefreshTime:' + safeRefreshTime)
+  console.log('isNowLaterThanSafeRefreshTime:' + isNowLaterThanSafeRefreshTime)
   return isNowLaterThanSafeRefreshTime
 }
 

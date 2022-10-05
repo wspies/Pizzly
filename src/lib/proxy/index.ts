@@ -41,15 +41,16 @@ export const incomingRequestHandler = async (req, res, next) => {
     return next(new PizzlyError('unknown_authentication'))
   }
 
-  console.dir('authentication-1:' + JSON.stringify(authentication));
+  console.dir('lib\proxy\index.ts\incomingRequestHandler:current authentication' + JSON.stringify(authentication));
 
   try {
     // Handle the token freshness (if it has expired)
     if (await accessTokenHasExpired(authentication)) {
+      console.dir('lib\proxy\index.ts\incomingRequestHandler:refreshAuthenticationToken');
       authentication = await refreshAuthentication(integration, authentication)
     }
 
-    console.dir('authentication-2:' + JSON.stringify(authentication));
+    console.dir('lib\proxy\index.ts\incomingRequestHandler:update authentication' + JSON.stringify(authentication));
 
     if (!authentication) {
       return next(new PizzlyError('token_refresh_failed')) // TODO: improve error verbosity
